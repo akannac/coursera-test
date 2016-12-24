@@ -24,13 +24,13 @@
     <!-- <div style="float:left" class="error" ng-if="list.itemName.length == 0 || list.found.length == 0">WARNING! WARNING! NADA DETECTED!</div> -->
     <!-- <div style="clear:both" ng-if="list.found.length == 0">Nothing found.</div>
     <div ng-if="list.found.length != 0"> -->
-      <foundItems
+      <found-items
         ng-if="list.isLoading == false"
         found="list.found"
         display-message="list.message"
         on-remove="list.removeItem(index);"
         >
-      </foundItems>
+      </found-items>
   </div>
 
 </body>
