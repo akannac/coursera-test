@@ -84,7 +84,7 @@ function MenuSearchService($http, $q) {
 
     var promise = $http({
       method: "GET",
-      url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
+      url: "https://davids-restaurant.herokuapp.com/menu_items.json"
     });
 
     return promise.then(function (response) {
