@@ -1,14 +1,24 @@
 (function () {
-  angular.
-    module("NarrowItDownApp", []).
+  angular.module("NarrowItDownApp", []).
     controller("NarrowItDownController", NarrowItDownController).
     service("MenuSearchService", MenuSearchService).
     directive("foundItems", FoundItems).
-    constant("REST_API_URL", "//davids-restaurant.herokuapp.com/menu_items.json");
+    constant("REST_API_URL", "https://davids-restaurant.herokuapp.com/menu_items.json");
 
   NarrowItDownController.$inject = ["MenuSearchService"];
   function NarrowItDownController(MenuSearchService) {
     var menu = this;
+
+    var myModule = angular.module("NarrowItDownApp", []);
+
+myModule.directive("foundItems", function factory(injectables) {
+  var directiveDefinitionObject = {
+    link: function postLink(scope, iElement, iAttrs) { ... }
+  };
+  return directiveDefinitionObject;
+  // or
+  // return function postLink(scope, iElement, iAttrs) { ... }
+});
 
     menu.found = [];
     menu.searchTerm = "";
