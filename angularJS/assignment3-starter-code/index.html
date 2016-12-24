@@ -1,37 +1,30 @@
 <!doctype html>
-<html lang="en" ng-app="NarrowItDownApp">
+<html lang="en">
   <head>
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
   </head>
-<body>
-   <div class="container" ng-controller='NarrowItDownController as list'>
-    <h1>Narrow Down Your Chinese Menu Choice</h1>
-
-    <div class="form-group">
-      <input type="text" ng-model="list.itemName" placeholder="search term" class="form-control">
+  <body ng-app="NarrowItDownApp">
+    <div class="container" ng-controller="NarrowItDownController as menu">
+      <h1>Narrow Down Your Chinese Menu Choice</h1>
+      <div class="form-group">
+        <input type="text" placeholder="search term" class="form-control" ng-model="menu.searchTerm">
+      </div>
+      <div class="form-group narrow-button">
+        <button class="btn btn-primary" ng-click="menu.narrowItDown()">
+          Narrow It Down For Me!
+        </button>
+      </div>
+      <div class="items">
+        <found-items items="menu.found"
+                     error="menu.showError"
+                     on-remove="menu.removeItem(index)">
+        </found-items>
+      </div>
     </div>
-    <div class="form-group narrow-button">
-      <button class="btn btn-primary" ng-click='list.narrowItDown();'>Narrow It Down For Me!</button>
-    </div>
-    <!-- found-items should be implemented as a component -->
-
-    <!-- TODO: Make this only show after button clicked -->
-    <!-- <div style="float:left" class="error" ng-if="list.itemName.length == 0 || list.found.length == 0">WARNING! WARNING! NADA DETECTED!</div> -->
-    <!-- <div style="clear:both" ng-if="list.found.length == 0">Nothing found.</div>
-    <div ng-if="list.found.length != 0"> -->
-      <found-items
-        ng-if="list.isLoading == false"
-        found="list.found"
-        display-message="list.message"
-        on-remove="list.removeItem(index);"
-        >
-      </found-items>
-  </div>
-
-</body>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

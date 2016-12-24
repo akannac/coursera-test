@@ -1,10 +1,19 @@
-<div style="float:left">
-  <ol>
-    <li ng-repeat="item in found">
-      {{item.name}}, {{item.short_name}}, {{item.description}}
-      <!-- <button ng-click="list.removeItem($index);">Remove Item</button> -->
-      <button ng-click="onRemove({index: $index});">Remove Item</button>
-    </li>
-  </ol>
-</div>
-<div ng-if="message.length > 0" style="clear:both">{{message}}
+<table class="table" ng-if="items.length">
+  <tr>
+    <th>Name</td>
+    <th>Short Name</td>
+    <th>Description</td>
+    <th></td>
+  </tr>
+  <tr ng-repeat="item in items">
+    <td>{{item.name}}</td>
+    <td>{{item.short_name}}</td>
+    <td>{{item.description}}</td>
+    <td>
+      <button class="btn btn-default" ng-click="onRemove({index: $index})">
+        Don't want this one!
+      </button>
+    </td>
+  </tr>
+</table>
+<div class="alert alert-danger" ng-if="error">Nothing found</div>
