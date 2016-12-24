@@ -4,7 +4,6 @@
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
 .service('MenuSearchService', MenuSearchService)
-.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com/menu_items.json")
 .directive('foundItems', FoundItemsDirective)
 
 
@@ -18,9 +17,6 @@ function FoundItemsDirective() {
       onRemove: '&' // parent in charge of data, but directive needs button to remove it
       //onRemove is used in parent template on this directive
     },
-    controller: NarrowItDownController,
-    controllerAs: 'list',
-    bindToController: true
   };
 
   return ddo;
@@ -47,7 +43,7 @@ function NarrowItDownController(MenuSearchService) {
       }
     })
     .catch( function(error) {
-      console.log("Had an oopsy!", error);
+      console.log("something went wrong!", error);
       list.isLoading = false;
     })
     //list.found = MenuSearchService.getMatchedMenuItems(list.itemName);
