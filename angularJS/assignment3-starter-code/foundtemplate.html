@@ -1,0 +1,10 @@
+<div style="float:left">
+  <ol>
+    <li ng-repeat="item in found">
+      {{item.name}}, {{item.short_name}}, {{item.description}}
+      <!-- <button ng-click="list.removeItem($index);">Remove Item</button> -->
+      <button ng-click="onRemove({index: $index});">Remove Item</button>
+    </li>
+  </ol>
+</div>
+<div ng-if="message.length > 0" style="clear:both">{{message}}
