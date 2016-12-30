@@ -1,0 +1,17 @@
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #cecfd5;
+    padding: 1em;
+}
+
+td {
+    vertical-align: top;
+}
+
+.welcome {
+    margin-top: 2em;
+}
